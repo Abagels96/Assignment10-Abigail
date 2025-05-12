@@ -24,7 +24,8 @@ public class Assignment10Controller {
 	@GetMapping("mapuri")
 	public void mapUri() {
 		service.callSpoonacularApi();
-	}
+	}//postman gives me a 400 error but the test application outputs the correct stuff and the browser just gives
+	// me a blank screen but no error
 	
 	
 	

@@ -16,12 +16,15 @@ public class Assignment10Service {
 
 		
 		
-	URI uriDay =	UriComponentsBuilder.fromPath("https://api.spoonacular.com/mealplanner/generate")
+	URI uriDay =	UriComponentsBuilder.newInstance()
+			                         .scheme("https")
+			                         .host("api.spoonacular.com")
+			                        .path("/mealplanner/generate")
 			                        .queryParam("timeFrame", "day")
 			                        .queryParam("targetCalories", "2000")
 			                        .queryParam("diet", "paleo")
 			                        .queryParam("exclude","shrimp,black olives,mushrooms")
-			                        .queryParam("api-key", "26da184289a34f92b8c8562015a8d1d3")
+			                        .queryParam("apiKey", "26da184289a34f92b8c8562015a8d1d3")
 			                        .build()
 			                        .toUri();
 //	URI uriWeek=	UriComponentsBuilder.fromPath("https://api.spoonacular.com/mealplanner/generate")
@@ -33,7 +36,7 @@ public class Assignment10Service {
 //			.build()
 //			.toUri();
 //		
-		
+
 		RestTemplate rt1= new RestTemplate();
 		
 //		ResponseEntity<String> responseWeek= rt1.getForEntity(uriWeek, String.class);
