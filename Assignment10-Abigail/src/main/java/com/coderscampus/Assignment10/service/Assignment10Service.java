@@ -1,23 +1,18 @@
 package com.coderscampus.Assignment10.service;
 
-import java.net.InetSocketAddress;
-import java.net.Proxy;
 import java.net.URI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-
+@Service 
 public class Assignment10Service {
-	@Test
+	
 	public void callSpoonacularApi() {
 		
-		SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
-		Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy-host", 8080));
-		factory.setProxy(proxy);
+		
 
 		
 		
@@ -39,20 +34,18 @@ public class Assignment10Service {
 //			.toUri();
 //		
 		
-		RestTemplate rt= new RestTemplate(factory);
 		RestTemplate rt1= new RestTemplate();
 		
 //		ResponseEntity<String> responseWeek= rt1.getForEntity(uriWeek, String.class);
 		
-	ResponseEntity<String> responseDay=	rt.getForEntity(uriDay, String.class);
+	ResponseEntity<String> responseDay=	rt1.getForEntity(uriDay, String.class);
 	
-	System.setProperty("java.net.useSystemProxies", "false");
 	System.out.println(responseDay.getBody());
 //	System.out.println(responseWeek.getBody());
 	}
 	// Psuedo code the end goal is to make meal plans with the api
-	//First I need to request the data from the API with a request // I don't know how the responseEntity or the URI is involved but I need to keep plugging a
+	//First I need to request the data from the API with a request 
 	// then I need to map that data into an Java object then use those 
-	//objects to plan out meals for days and evenings I think.
+	//objects in the controller to filter them with maps
 
 }
