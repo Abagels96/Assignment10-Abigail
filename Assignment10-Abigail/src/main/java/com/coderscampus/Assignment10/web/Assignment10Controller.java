@@ -23,7 +23,7 @@ public class Assignment10Controller {
 	
 	@GetMapping("mapuri")
 	public void mapUri() {
-		service.callSpoonacularApi();
+		service.callSpoonacularWeekApi();
 	}//postman gives me a 400 error but the test application outputs the correct stuff and the browser just gives
 	// me a blank screen but no error
 	
@@ -33,18 +33,22 @@ public class Assignment10Controller {
 
 	public ResponseEntity<WeekResponse> getWeekMeals(String numCalories, String diet, String exclusions){
 		
-		numCalories="14,000";
-		diet="vegetarian";
-		exclusions="olives";
-		return null;
-		
+	 ResponseEntity<WeekResponse> week=service.callSpoonacularWeekApi();
+	 
+//	 numCalories="14000";
+//	 diet="paleo";
+
+	 
+	 return week;
 	}
 
 	@GetMapping("mealplanner/day")
 
 	public ResponseEntity<DayResponse> getDayMeals(String numCalories, String diet, String exclusions){
-		return null;
-		
+
+	ResponseEntity<DayResponse> day= service.callSpoonacularDayApi();
+	
+	return day;
 	}
 
 }
