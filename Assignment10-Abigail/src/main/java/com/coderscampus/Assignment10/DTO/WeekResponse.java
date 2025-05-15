@@ -4,6 +4,11 @@ package com.coderscampus.Assignment10.DTO;
 
 public class WeekResponse {
 	
+	@Override
+	public String toString() {
+		return "WeekResponse [week=" + week + "]";
+	}
+
 	private Week week;
 	
 	
