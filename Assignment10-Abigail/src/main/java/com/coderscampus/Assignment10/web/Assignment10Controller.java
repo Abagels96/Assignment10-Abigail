@@ -17,9 +17,7 @@ public class Assignment10Controller {
 	@Autowired
 	Assignment10Service service ;
 	// Paste in the endpoints from the assignment 
-	// Do I need to make a post request to get information from the API?? How do I transfer that- do I need to build a 
-	// partial repository or am I overthinking things?
-	// get mapping is taking information from an API correct ? i don't think I need to use params annotation at all	
+	
 	
 	@GetMapping("mapuri")
 	public void mapUri() {
@@ -35,8 +33,7 @@ public class Assignment10Controller {
 		
 	 ResponseEntity<WeekResponse> week=service.callSpoonacularWeekApi();
 	 
-//	 numCalories="14000";
-//	 diet="paleo";
+
 
 	 
 	 return week;
@@ -47,7 +44,7 @@ public class Assignment10Controller {
 	public ResponseEntity<DayResponse> getDayMeals(String numCalories, String diet, String exclusions){
 
 	ResponseEntity<DayResponse> day= service.callSpoonacularDayApi();
-	
+	// day is being loaded on the browser and in Postman. We now need to figure out the filtering mechanism.
 	return day;
 	}
 

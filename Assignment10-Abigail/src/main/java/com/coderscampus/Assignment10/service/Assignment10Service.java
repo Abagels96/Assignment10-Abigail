@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.coderscampus.Assignment10.DTO.Day;
 import com.coderscampus.Assignment10.DTO.DayResponse;
 import com.coderscampus.Assignment10.DTO.WeekResponse;
 @Service 
@@ -24,9 +25,9 @@ public class Assignment10Service {
 			                         .host("api.spoonacular.com")
 			                        .path("/mealplanner/generate")
 			                        .queryParam("timeFrame", "day")
-			                        .queryParam("targetCalories", "0")
-			                        .queryParam("diet", "null")
-			                        .queryParam("exclude","")
+			                        .queryParam("targetCalories","1000")
+			                        .queryParam("diet","paleo")
+			                        .queryParam("exclude", "black olives,cottage cheese,onions")
 			                        .queryParam("apiKey", "26da184289a34f92b8c8562015a8d1d3")
 			                        .build()
 			                        .toUri();
@@ -48,11 +49,11 @@ public class Assignment10Service {
 
 			.host("api.spoonacular.com")
 	.path("/mealplanner/generate")
-			.queryParam("timeFrame", "week")
-			.queryParam("targetCalories", "14000")
-			.queryParam("diet", "paleo")
-			.queryParam("exclude","shrimp,black olives,mushrooms")
 	.queryParam("apiKey", "26da184289a34f92b8c8562015a8d1d3")
+	.queryParam("timeFrame", "week")
+    .queryParam("targetCalories","14000")
+    .queryParam("diet","paleo")
+    .queryParam("exclude", "black olives,cottage cheese,onions")
 			.build()
 			.toUri();
 	RestTemplate rt1= new RestTemplate();

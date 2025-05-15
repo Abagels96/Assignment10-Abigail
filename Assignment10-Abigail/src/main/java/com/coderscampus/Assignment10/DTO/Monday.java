@@ -2,12 +2,13 @@ package com.coderscampus.Assignment10.DTO;
 
 import java.util.List;
 
+public class Monday {
 
-public class DayResponse {
-	List<Meal> meals;
-	Nutrients nutrients;
-	
-	
+	private List<Meals> meals;
+	private Nutrients nutrients;
+	public List<Meals> getMeals() {
+		return meals;
+	}
 	
 	public Nutrients getNutrients() {
 		return nutrients;
@@ -15,16 +16,4 @@ public class DayResponse {
 	public void setNutrients(Nutrients nutrients) {
 		this.nutrients = nutrients;
 	}
-
-	
-	public List<Meal> getMeals() {
-		return meals;
-	}
-	public void setMeals(List<Meal> meals) {
-		this.meals = meals;
-	}
-	
-	
-	
-
 }
