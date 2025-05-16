@@ -9,46 +9,46 @@ public class Week {
 	private Day saturday;
 	private Day sunday;
 	
-	private Day getMonday() {
+	public Day getMonday() {
 		return monday;
 	}
-	private void setMonday(Day monday) {
+	public void setMonday(Day monday) {
 		this.monday = monday;
 	}
-	private Day getTuesday() {
+	public Day getTuesday() {
 		return tuesday;
 	}
-	private void setTuesday(Day tuesday) {
+	public void setTuesday(Day tuesday) {
 		this.tuesday = tuesday;
 	}
-	private Day getWednesday() {
+	public Day getWednesday() {
 		return wednesday;
 	}
-	private void setWednesday(Day wednesday) {
+	public void setWednesday(Day wednesday) {
 		this.wednesday = wednesday;
 	}
-	private Day getThursday() {
+	public Day getThursday() {
 		return thursday;
 	}
-	private void setThursday(Day thursday) {
+	public void setThursday(Day thursday) {
 		this.thursday = thursday;
 	}
-	private Day getFriday() {
+	public Day getFriday() {
 		return friday;
 	}
-	private void setFriday(Day friday) {
+	public void setFriday(Day friday) {
 		this.friday = friday;
 	}
-	private Day getSaturday() {
+	public Day getSaturday() {
 		return saturday;
 	}
-	private void setSaturday(Day saturday) {
+	public void setSaturday(Day saturday) {
 		this.saturday = saturday;
 	}
-	private Day getSunday() {
+	public Day getSunday() {
 		return sunday;
 	}
-	private void setSunday(Day sunday) {
+	public void setSunday(Day sunday) {
 		this.sunday = sunday;
 	}
 

@@ -25,9 +25,6 @@ public class Assignment10Service {
 			                         .host("api.spoonacular.com")
 			                        .path("/mealplanner/generate")
 			                        .queryParam("timeFrame", "day")
-			                        .queryParam("targetCalories",1000)
-			                        .queryParam("diet","paleo")
-			                        .queryParam("exclude", "black olives,cottage cheese,onions")
 			                        .queryParam("apiKey", "26da184289a34f92b8c8562015a8d1d3")
 			                        .build()
 			                        .toUri();
@@ -50,9 +47,6 @@ public class Assignment10Service {
 			.host("api.spoonacular.com")
 	.path("/mealplanner/generate")
 	.queryParam("timeFrame", "week")
-    .queryParam("targetCalories",14000)
-    .queryParam("diet","paleo")
-    .queryParam("exclude", "black olives,cottage cheese,onions")
     .queryParam("apiKey", "26da184289a34f92b8c8562015a8d1d3")
 			.build()
 			.toUri();

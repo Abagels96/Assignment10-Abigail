@@ -4,7 +4,7 @@ import java.util.List;
 
 
 public class DayResponse {
-	List<Meal> meals;
+	List<Meals> meals;
 	Nutrients nutrients;
 	
 	
@@ -17,10 +17,10 @@ public class DayResponse {
 	}
 
 	
-	public List<Meal> getMeals() {
+	public List<Meals> getMeals() {
 		return meals;
 	}
-	public void setMeals(List<Meal> meals) {
+	public void setMeals(List<Meals> meals) {
 		this.meals = meals;
 	}
 	

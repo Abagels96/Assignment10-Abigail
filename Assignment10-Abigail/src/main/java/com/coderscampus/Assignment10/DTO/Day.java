@@ -3,18 +3,20 @@ package com.coderscampus.Assignment10.DTO;
 import java.util.List;
 
 public class Day {
-	List<Meal> meals;
+	List<Meals> meals;
 	Nutrients nutrients;
-	private List<Meal> getMeals() {
+	
+	
+	public List<Meals> getMeals() {
 		return meals;
 	}
-	private void setMeals(List<Meal> meals) {
+	public void setMeal(List<Meals> meals) {
 		this.meals = meals;
 	}
-	private Nutrients getNutrients() {
+	public Nutrients getNutrients() {
 		return nutrients;
 	}
-	private void setNutrients(Nutrients nutrients) {
+	public void setNutrients(Nutrients nutrients) {
 		this.nutrients = nutrients;
 	}
 
