@@ -18,37 +18,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @RestController
 public class Assignment10Controller {
 	@Autowired
-	Assignment10Service service ;
-	// Paste in the endpoints from the assignment 
-	
-	
-	
+	Assignment10Service service;
+
 	@JsonProperty("exclude")
-	String exclusions= null;
+	String exclusions = null;
 	@JsonProperty("targetCalories")
-	String numCalories=null;
-	String diet=null;
-	
+	String numCalories = null;
+	String diet = null;
 
 	@GetMapping("mealplanner/week{numCalories}{diet}{exclusions}")
 
-	public ResponseEntity<WeekResponse> getWeekMeals(@PathVariable String numCalories, @PathVariable String diet, @PathVariable String exclusions){
-		
-	 ResponseEntity<WeekResponse> week=service.callSpoonacularWeekApi();
-	 // this works after  a long while now I need to filter them and just deal with the meals.
+	public ResponseEntity<WeekResponse> getWeekMeals(@PathVariable String numCalories, @PathVariable String diet,
+			@PathVariable String exclusions) {
 
+		ResponseEntity<WeekResponse> week = service.callSpoonacularWeekApi();
 
-	 
-	 return week;
+		return week;
 	}
 
 	@GetMapping("mealplanner/day{numCalories}{diet}{exclusions}")
 
-	public ResponseEntity<DayResponse> getDayMeals(@PathVariable String numCalories,@PathVariable String diet,@PathVariable String exclusions){
+	public ResponseEntity<DayResponse> getDayMeals(@PathVariable String numCalories, @PathVariable String diet,
+			@PathVariable String exclusions) {
 
-	ResponseEntity<DayResponse> day= service.callSpoonacularDayApi();
-	// day is being loaded on the browser and in Postman. We now need to figure out the filtering mechanism.
-	return day;
+		ResponseEntity<DayResponse> day = service.callSpoonacularDayApi();
+		return day;
 	}
 
 }
