@@ -2,18 +2,16 @@ package com.coderscampus.Assignment10.service;
 
 import java.net.URI;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.coderscampus.Assignment10.DTO.Day;
 import com.coderscampus.Assignment10.DTO.DayResponse;
 import com.coderscampus.Assignment10.DTO.WeekResponse;
 
 @Service
-public class Assignment10Service {
+public class MealPlannerService {
 
 	public ResponseEntity<DayResponse> callSpoonacularDayApi() {
 
