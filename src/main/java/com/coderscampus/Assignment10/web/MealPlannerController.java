@@ -17,25 +17,23 @@ public class MealPlannerController {
 	@Autowired // no autowired use constructor injection
 	MealPlannerService service;
 
-	@JsonProperty("exclude")
-	String exclusions = null;
-	@JsonProperty("targetCalories")
-	String numCalories = null;
-	String diet = null;
-
-	@GetMapping("mealplanner/week{numCalories}{diet}{exclusions}")
-	public ResponseEntity<WeekResponse> getWeekMeals(@RequestParam String numCalories, @RequestParam String diet,
-			@RequestParam String exclusions) {
+	
+	@GetMapping("mealplanner/week")
+	public ResponseEntity<WeekResponse> getWeekMeals(@RequestParam("targetCalories") String numCalories, @RequestParam String diet,
+			@RequestParam("exclude") String exclusions) {
+		System.out.println("Target calories "+  numCalories  + " , special diet  "+  diet  + "and things to avoid  "+ exclusions);
 
 		ResponseEntity<WeekResponse> week = service.callSpoonacularWeekApi();
 
 		return week;
 	}
 
-	@GetMapping("mealplanner/day{numCalories}{diet}{exclusions}")
-	public ResponseEntity<DayResponse> getDayMeals(@RequestParam String numCalories, @RequestParam String diet,
-			@RequestParam String exclusions) {
-
+	@GetMapping("mealplanner/day")
+	public ResponseEntity<DayResponse> getDayMeals(@RequestParam ("targetCalories") String numCalories, @RequestParam String diet,
+			@RequestParam ("exclude") String exclusions) {
+		
+		
+System.out.println("Target calories "+ numCalories + " ,special diet "+ diet+ "and things to avoid "+ exclusions);
 		ResponseEntity<DayResponse> day = service.callSpoonacularDayApi();
 		return day;
 	}
