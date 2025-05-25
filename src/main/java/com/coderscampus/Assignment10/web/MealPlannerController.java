@@ -1,7 +1,5 @@
 package com.coderscampus.Assignment10.web;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,24 +11,27 @@ import com.coderscampus.Assignment10.service.MealPlannerService;
 
 @RestController
 public class MealPlannerController {
-	@Autowired // no autowired use constructor injection
-	MealPlannerService service;
-
-	
+	 private final MealPlannerService service;
+	 
+	 
+	 
+	 public MealPlannerController(MealPlannerService service) {
+	        this.service = service;
+	    }
 	@GetMapping("mealplanner/week")
-	public ResponseEntity<WeekResponse> getWeekMeals(@RequestParam("targetCalories") String numberOfCalories, @RequestParam String diet,
-			@RequestParam("exclude") String exclusions) {
-		
-	ResponseEntity<WeekResponse> week = service.callSpoonacularWeekApi(diet, exclusions,numberOfCalories);
+	public ResponseEntity<WeekResponse> getWeekMeals(@RequestParam("targetCalories") String numCalories,
+			@RequestParam String diet, @RequestParam("exclude") String exclusions) {
+
+		ResponseEntity<WeekResponse> week =  service.callSpoonacularWeekApi(diet, exclusions, numCalories);
 		return week;
 	}
 
 	@GetMapping("mealplanner/day")
-	public ResponseEntity<DayResponse> getDayMeals(@RequestParam("targetCalories") String numberOfCalories, @RequestParam String diet,
-			@RequestParam("exclude") String exclusions) {
-		
-		ResponseEntity<DayResponse> day = service.callSpoonacularDayApi(diet,exclusions,numberOfCalories);
-		
+	public ResponseEntity<DayResponse> getDayMeals(@RequestParam("targetCalories") String numCalories,
+			@RequestParam String diet, @RequestParam("exclude") String exclusions) {
+
+		ResponseEntity<DayResponse> day = service.callSpoonacularDayApi(diet, exclusions, numCalories);
+
 		return day;
 	}
 

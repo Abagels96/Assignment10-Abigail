@@ -13,12 +13,12 @@ import com.coderscampus.Assignment10.DTO.WeekResponse;
 @Service
 public class MealPlannerService {
 
-	public ResponseEntity<DayResponse> callSpoonacularDayApi(String diet, String exclusions, String targetCalories) {
+	public ResponseEntity<DayResponse> callSpoonacularDayApi(String diet, String exclude, String targetCalories) {
 
 		URI uriDay = UriComponentsBuilder.newInstance().scheme("https").host("api.spoonacular.com")
-				.path("mealplanner/generate").queryParam("timeFrame", "day")
-				.queryParam("targetCalories", targetCalories).queryParam("diet", diet).queryParam("exclude", exclusions)
-				.queryParam("apiKey","26da184289a34f92b8c8562015a8d1d3").build().toUri();
+				.path("/mealplanner/generate").queryParam("timeFrame", "day")
+				.queryParam("targetCalories", targetCalories).queryParam("diet", diet).queryParam("exclude", exclude)
+				.queryParam("apiKey", "26da184289a34f92b8c8562015a8d1d3").build().toUri();
 
 		RestTemplate rt1 = new RestTemplate();
 
@@ -27,11 +27,11 @@ public class MealPlannerService {
 		return responseDay;
 	}
 
-	public ResponseEntity<WeekResponse> callSpoonacularWeekApi(String diet, String exclusions, String targetCalories) {
+	public ResponseEntity<WeekResponse> callSpoonacularWeekApi(String diet, String exclude, String targetCalories) {
 
 		URI uriWeek = UriComponentsBuilder.newInstance().scheme("https").host("api.spoonacular.com")
 				.path("/mealplanner/generate").queryParam("timeFrame", "week").queryParam("diet", diet)
-				.queryParam("exclude", exclusions).queryParam("targetCalories", targetCalories)
+				.queryParam("exclude", exclude).queryParam("targetCalories", targetCalories)
 				.queryParam("apiKey", "26da184289a34f92b8c8562015a8d1d3").build().toUri();
 		RestTemplate rt1 = new RestTemplate();
 		ResponseEntity<WeekResponse> responseWeek = rt1.getForEntity(uriWeek, WeekResponse.class);
