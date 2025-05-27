@@ -3,8 +3,8 @@ package com.coderscampus.Assignment10.DTO;
 import java.util.List;
 
 public class DayResponse {
-	List<Meals> meals;
-	Nutrients nutrients;
+	private List<Meals> meals;
+	private Nutrients nutrients;
 
 	public Nutrients getNutrients() {
 		return nutrients;

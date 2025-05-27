@@ -2,10 +2,10 @@ package com.coderscampus.Assignment10.DTO;
 
 public class Nutrients {
 
-	double calories;
-	double protein;
-	double fat;
-	double carbohydrates;
+	private double calories;
+	private double protein;
+	private double fat;
+	private double carbohydrates;
 
 	public double getCalories() {
 		return calories;

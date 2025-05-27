@@ -2,8 +2,9 @@
 package com.coderscampus.Assignment10.DTO;
 
 public class WeekResponse {
-	Week week;
+	private Week week;
 
+	
 	public Week getWeek() {
 		return week;
 	}
