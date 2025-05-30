@@ -17,7 +17,7 @@ public class MealPlannerService {
 	@Value("${api.key}")
 	private String apiKey;
 	
-	
+	 
 	public ResponseEntity<DayResponse> callSpoonacularDayApi(String diet, String exclude, String targetCalories) {
 
 		URI uriDay = UriComponentsBuilder.newInstance().scheme("https").host("api.spoonacular.com")
