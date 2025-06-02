@@ -1,25 +1,29 @@
 
 package com.coderscampus.Assignment10.DTO;
 
+import java.util.List;
 import java.util.Map;
 
 public class WeekResponse {
-	private Map<String,DayResponse> dayOfTheWeek;
-	private DayResponse dayResponse;
+	
+	
+	Map<String,DayResponse> daysOfTheWeek;
+
+	public Map<String, DayResponse> getDaysOfTheWeek() {
+		return daysOfTheWeek;
+	}
+
+	public void setDaysOfTheWeek(Map<String, DayResponse> daysOfTheWeek) {
+		this.daysOfTheWeek = daysOfTheWeek;
+	}
+
+	
+
+	+
 	
 	
 	
-	public Map<String, DayResponse> getDayOfTheWeek() {
-		return dayOfTheWeek;
-	}
-	public void setDayOfTheWeek(Map<String, DayResponse> dayOfTheWeek) {
-		this.dayOfTheWeek = dayOfTheWeek;
-	}
-	public DayResponse getDayResponse() {
-		return dayResponse;
-	}
-	public void setDayResponse(DayResponse dayResponse) {
-		this.dayResponse = dayResponse;
-	}
+	
+
 
 }
