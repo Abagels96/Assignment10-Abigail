@@ -1,67 +1,31 @@
 package com.coderscampus.Assignment10.DTO;
 
+import java.util.Map;
+
 public class Week {
-	private DayResponse monday;
-	private DayResponse tuesday;
-	private DayResponse wednesday;
-	private DayResponse thursday;
-	private DayResponse friday;
-	private DayResponse saturday;
-	private DayResponse sunday;
-	public DayResponse getMonday() {
-		return monday;
+	private Map<String,DayResponse> dayOfTheWeek;
+	private DayResponse dayResponse;
+	
+	
+	
+	public Map<String, DayResponse> getDayOfTheWeek() {
+		return dayOfTheWeek;
 	}
-
-	public void setMonday(DayResponse monday) {
-		this.monday = monday;
+	public void setDayOfTheWeek(Map<String, DayResponse> dayOfTheWeek) {
+		this.dayOfTheWeek = dayOfTheWeek;
 	}
-
-	public DayResponse getTuesday() {
-		return tuesday;
+	public DayResponse getDayResponse() {
+		return dayResponse;
 	}
-
-	public void setTuesday(DayResponse tuesday) {
-		this.tuesday = tuesday;
+	public void setDayResponse(DayResponse dayResponse) {
+		this.dayResponse = dayResponse;
 	}
-
-	public DayResponse getWednesday() {
-		return wednesday;
-	}
-
-	public void setWednesday(DayResponse wednesday) {
-		this.wednesday = wednesday;
-	}
-
-	public DayResponse getThursday() {
-		return thursday;
-	}
-
-	public void setThursday(DayResponse thursday) {
-		this.thursday = thursday;
-	}
-
-	public DayResponse getFriday() {
-		return friday;
-	}
-
-	public void setFriday(DayResponse friday) {
-		this.friday = friday;
-	}
-
-	public DayResponse getSaturday() {
-		return saturday;
-	}
-
-	public void setSaturday(DayResponse saturday) {
-		this.saturday = saturday;
-	}
-
-	public DayResponse getSunday() {
-		return sunday;
-	}
-
-	public void setSunday(DayResponse sunday) {
-		this.sunday = sunday;
-	}
-
+	
+	
+	
+	
+	
+	
+	
+	
 }
