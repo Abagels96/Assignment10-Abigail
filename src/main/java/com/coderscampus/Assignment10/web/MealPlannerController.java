@@ -19,16 +19,16 @@ public class MealPlannerController {
 	        this.service = service;
 	    }
 	@GetMapping("mealplanner/week")
-	public ResponseEntity<WeekResponse> getWeekMeals(@RequestParam(name="targetCalories")  String numCalories,
-			 String diet, @RequestParam(name ="exclude") String exclusions) {
+	public ResponseEntity<WeekResponse> getWeekMeals(@RequestParam(name="targetCalories", required=false)  String numCalories,
+			 @RequestParam(required=false) String diet, @RequestParam(name="exclude",required=false) String exclusions) {
 
 		ResponseEntity<WeekResponse> week =  service.callSpoonacularWeekApi(diet, exclusions, numCalories);
 		return week;
 	}
 
 	@GetMapping("mealplanner/day")
-	public ResponseEntity<DayResponse> getDayMeals(@RequestParam(name="targetCalories") String numCalories,
-			 String diet, @RequestParam(name="exclude") String exclusions) {
+	public ResponseEntity<DayResponse> getDayMeals(@RequestParam(name="targetCalories",required=false) String numCalories,
+			 @RequestParam( required=false) String diet, @RequestParam( name="exclude", required=false) String exclusions) {
 
 		ResponseEntity<DayResponse> day = service.callSpoonacularDayApi(diet, exclusions, numCalories);
 
