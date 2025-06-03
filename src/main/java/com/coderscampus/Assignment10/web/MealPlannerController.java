@@ -11,24 +11,27 @@ import com.coderscampus.Assignment10.service.MealPlannerService;
 
 @RestController
 public class MealPlannerController {
-	 private final MealPlannerService service;
-	 
-	 
-	 
-	 public MealPlannerController(MealPlannerService service) {
-	        this.service = service;
-	    }
-	@GetMapping("mealplanner/week")
-	public ResponseEntity<WeekResponse> getWeekMeals(@RequestParam(name="targetCalories", required=false)  String numCalories,
-			 @RequestParam(required=false) String diet, @RequestParam(name="exclude",required=false) String exclusions) {
+	private final MealPlannerService service;
 
-		ResponseEntity<WeekResponse> week =  service.callSpoonacularWeekApi(diet, exclusions, numCalories);
+	public MealPlannerController(MealPlannerService service) {
+		this.service = service;
+	}
+
+	@GetMapping("mealplanner/week")
+	public ResponseEntity<WeekResponse> getWeekMeals(
+			@RequestParam(name = "targetCalories", required = false) String numCalories,
+			@RequestParam(required = false) String diet,
+			@RequestParam(name = "exclude", required = false) String exclusions) {
+
+		ResponseEntity<WeekResponse> week = service.callSpoonacularWeekApi(diet, exclusions, numCalories);
 		return week;
 	}
 
 	@GetMapping("mealplanner/day")
-	public ResponseEntity<DayResponse> getDayMeals(@RequestParam(name="targetCalories",required=false) String numCalories,
-			 @RequestParam( required=false) String diet, @RequestParam( name="exclude", required=false) String exclusions) {
+	public ResponseEntity<DayResponse> getDayMeals(
+			@RequestParam(name = "targetCalories", required = false) String numCalories,
+			@RequestParam(required = false) String diet,
+			@RequestParam(name = "exclude", required = false) String exclusions) {
 
 		ResponseEntity<DayResponse> day = service.callSpoonacularDayApi(diet, exclusions, numCalories);
 

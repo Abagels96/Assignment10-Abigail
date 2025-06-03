@@ -18,10 +18,11 @@ public class MealPlannerService {
 
 	@Value("${api.key}")
 	private String apiKey;
-	 
-	public ResponseEntity<DayResponse> callSpoonacularDayApi(String diet,  String exclude, @RequestParam(required= false) String targetCalories) {
- URI uriDay= buildUri(exclude,diet,targetCalories,"day");
-		
+
+	public ResponseEntity<DayResponse> callSpoonacularDayApi(String diet, String exclude,
+			@RequestParam(required = false) String targetCalories) {
+		URI uriDay = buildUri(exclude, diet, targetCalories, "day");
+
 		RestTemplate rt1 = new RestTemplate();
 
 		ResponseEntity<DayResponse> responseDay = rt1.getForEntity(uriDay, DayResponse.class);
@@ -29,8 +30,8 @@ public class MealPlannerService {
 		return responseDay;
 	}
 
-	public ResponseEntity<WeekResponse> callSpoonacularWeekApi( String exclude, String diet, String targetCalories) {
-		URI uriWeek = buildUri(exclude, diet, targetCalories,"week");
+	public ResponseEntity<WeekResponse> callSpoonacularWeekApi(String exclude, String diet, String targetCalories) {
+		URI uriWeek = buildUri(exclude, diet, targetCalories, "week");
 		RestTemplate rt1 = new RestTemplate();
 		ResponseEntity<WeekResponse> responseWeek = rt1.getForEntity(uriWeek, WeekResponse.class);
 		System.out.println(responseWeek.getBody());
@@ -39,29 +40,18 @@ public class MealPlannerService {
 	}
 
 	public URI buildUri(String exclude, String diet, String targetCalories, String timeFrame) {
-		UriComponentsBuilder builder= UriComponentsBuilder.newInstance().scheme("https").host("api.spoonacular.com")
-				.path("/mealplanner/generate").queryParam("timeFrame", timeFrame)
-				.queryParam("exclude", exclude).queryParam("apiKey", apiKey);
-		
-		
-		Optional.ofNullable(diet)
-		.filter(s-> !s.isBlank())
-		.ifPresent(d->builder.queryParam("diet",diet));
-		
-		Optional.ofNullable(exclude)
-		.filter(s-> !s.isBlank())
-		.ifPresent(d-> builder.queryParam("exclude", exclude));
-		
-		Optional.ofNullable(targetCalories)
-		.filter(s-> !s.isBlank())
-		.ifPresent(d-> builder.queryParam("targetCalories", exclude));
-		
-		
-		
+		UriComponentsBuilder builder = UriComponentsBuilder.newInstance().scheme("https").host("api.spoonacular.com")
+				.path("/mealplanner/generate").queryParam("timeFrame", timeFrame).queryParam("exclude", exclude)
+				.queryParam("apiKey", apiKey);
+
+		Optional.ofNullable(diet).filter(s -> !s.isBlank()).ifPresent(d -> builder.queryParam("diet", diet));
+
+		Optional.ofNullable(exclude).filter(s -> !s.isBlank()).ifPresent(d -> builder.queryParam("exclude", exclude));
+
+		Optional.ofNullable(targetCalories).filter(s -> !s.isBlank())
+				.ifPresent(d -> builder.queryParam("targetCalories", exclude));
+
 		return builder.build().toUri();
-	
-			
-		}
+
 	}
-
-
+}
