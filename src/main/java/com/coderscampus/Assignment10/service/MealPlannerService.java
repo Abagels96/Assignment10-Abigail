@@ -41,7 +41,7 @@ public class MealPlannerService {
 
 	public URI buildUri(String exclude, String diet, String targetCalories, String timeFrame) {
 		UriComponentsBuilder builder = UriComponentsBuilder.newInstance().scheme("https").host("api.spoonacular.com")
-				.path("/mealplanner/generate").queryParam("timeFrame", timeFrame).queryParam("exclude", exclude)
+				.path("/mealplanner/generate").queryParam("timeFrame", timeFrame)
 				.queryParam("apiKey", apiKey);
 
 		Optional.ofNullable(diet).filter(s -> !s.isBlank()).ifPresent(d -> builder.queryParam("diet", diet));
@@ -49,7 +49,7 @@ public class MealPlannerService {
 		Optional.ofNullable(exclude).filter(s -> !s.isBlank()).ifPresent(d -> builder.queryParam("exclude", exclude));
 
 		Optional.ofNullable(targetCalories).filter(s -> !s.isBlank())
-				.ifPresent(d -> builder.queryParam("targetCalories", exclude));
+				.ifPresent(d -> builder.queryParam("targetCalories", targetCalories));
 
 		return builder.build().toUri();
 
